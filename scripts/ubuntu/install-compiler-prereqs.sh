@@ -25,6 +25,7 @@ bail() {
 
 CLANG_VERSION="14.0.0"
 CLANG_UBUNTU_VERSION="18.04"
+VALE_BOOTSTRAP_VERSION="0.2.0.23"
 
 INSTALL_DEBS=0
 INSTALL_JAVA=0
@@ -98,7 +99,7 @@ fi
 if [[ $BOOTSTRAPPING_VALEC_DIR != "" ]]; then
   echo -e "\n${TEXT_GREEN}Downloading and unzipping stable bootstrapping valec to $BOOTSTRAPPING_VALEC_DIR...${TEXT_RESET}"
   # Install stable valec, for the .vale parts of the compiler
-  curl -L https://github.com/ValeLang/Vale/releases/download/v0.2.0/Vale-Ubuntu-0.2.0.23.zip -o /tmp/BootstrappingValeCompiler.zip
+  curl -L https://github.com/ValeLang/Vale/releases/download/v0.2.0/Vale-Ubuntu-$VALE_BOOTSTRAP_VERSION.zip -o /tmp/BootstrappingValeCompiler.zip
   unzip /tmp/BootstrappingValeCompiler.zip -d $BOOTSTRAPPING_VALEC_DIR
   # Doesnt work, see https://github.com/ValeLang/Vale/issues/306
   # echo 'export PATH=$PATH:~/ValeCompiler-0.1.3.3-Ubuntu' >> ~/.bashrc
